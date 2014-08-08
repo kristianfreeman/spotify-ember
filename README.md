@@ -2,6 +2,8 @@ A little web interface for Spotify. <3
 
 Mac required, as this communicates with Applescript on the backend.
 
+![screenshot](https://github.com/imkmf/spotify-ember/raw/master/screen.png)
+
 ---
 
 ### LICENSE
