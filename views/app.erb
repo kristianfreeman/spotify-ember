@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Ember + Spotify</title>
+    <script src="js/libs/jquery-1.10.2.js"></script>
+    <script src="js/libs/handlebars-1.1.2.js"></script>
+    <script src="js/libs/ember-1.6.1.js"></script>
+    <script src="js/libs/bootstrap.js"></script>
+    <script src="js/app.js"></script>
+    <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+  </head>
+  <body>
+    <script type="text/x-handlebars">
+      <div class="container">
+        {{outlet}}
+      </div>
+    </script>
+
+    <script type="text/x-handlebars" id="tracks">
+      <div class="row">
+        <h2>♪ {{current.track}} by {{current.artist}} ♪</h2>
+      </div>
+      <div class="row">
+        {{#if paused}}
+          <a {{action "resume"}} class="btn btn-success">Play</a>
+        {{else}}
+          <a {{action "pause"}} class="btn btn-danger">Pause</a>
+        {{/if}}
+      </div>
+
+      <hr>
+
+      <div class="row">
+        {{#if content}}
+          <h3>{{content.length}} tracks found.</h3>
+        {{else}}
+          <h3>Search for a track...</h3>
+        {{/if}}
+        {{input class="form-control" type="text" placeholder="Track name" value=query}}
+        <br>
+        <a {{action "search"}} class="btn btn-primary">Search</a>
+      </div>
+
+      {{#each}}
+        {{view App.TrackView}}
+      {{/each}}
+    </script>
+
+    <script type="text/x-handlebars" id="track">
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <div class="caption">
+            <h4>{{name}}</h4>
+            <p>{{artist}}</p>
+            <p><a {{action "play" this}} class="btn btn-primary">Play</a></p>
+          </div>
+        </div>
+      </div>
+    </script>
+  <body>
+</html>

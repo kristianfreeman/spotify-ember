@@ -1,0 +1,9 @@
+body {
+  background-color: #eee;
+  font-family: "Avenir", "Helvetica", sans-serif;
+}
+
+div.track {
+  margin: 20px;
+}
+
